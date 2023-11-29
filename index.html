@@ -54,6 +54,30 @@
             ></label
           >
         </div>
+
+        <div class="sex_search_box">
+      <label for="male" class="checkbox_margin">
+        <input
+          type="radio"
+          name="gender"
+          value="male"
+          class="radio_input"
+          id="male"
+        />
+        <span class="radio_parts padding_adjust1">男性</span>
+      </label>
+      <label for="female" class="checkbox_margin">
+        <input
+          type="radio"
+          name="gender"
+          value="female"
+          class="radio_input"
+          id="female"
+        />
+        <span class="radio_parts padding_adjust1">女性</span>
+      </label>
+    </div>
+
         <div class="search_ui size_search_box pc">
           <span id="sizeBox">
             <label>
@@ -72,7 +96,7 @@
                 value="category"
                 class="checkbox_input size_sort"
               />
-              <span class="checkbox_parts">15インチ</span></label
+              <span class="checkbox_parts">不動産</span></label
             >
             <label>
               <input
@@ -81,18 +105,10 @@
                 value="category"
                 class="checkbox_input size_sort"
               />
-              <span class="checkbox_parts">17インチ</span></label
+              <span class="checkbox_parts">医薬、医療</span></label
             >
           </span>
-          <label class="all_btn">
-            <input
-              type="checkbox"
-              id="category"
-              name="category"
-              class="checkbox_input"
-            />
-            <span class="checkbox_parts">全サイズ選択</span></label
-          >
+
           <label>
             <input
               type="checkbox"
@@ -100,7 +116,7 @@
               value="category"
               class="checkbox_input size_sort"
             />
-            <span class="checkbox_parts">13インチ</span></label
+            <span class="checkbox_parts">金融</span></label
           ><label>
             <input
               type="checkbox"
@@ -108,7 +124,7 @@
               value="category"
               class="checkbox_input size_sort"
             />
-            <span class="checkbox_parts">13インチ</span></label
+            <span class="checkbox_parts">建築</span></label
           ><label>
             <input
               type="checkbox"
@@ -116,38 +132,52 @@
               value="category"
               class="checkbox_input size_sort"
             />
-            <span class="checkbox_parts">13インチ</span></label
+            <span class="checkbox_parts">人材</span></label
           >
+
+                <input
+              type="checkbox"
+              name="category"
+              value="category"
+              class="checkbox_input size_sort"
+            />
+            <span class="checkbox_parts">サービス</span></label
+          >
+
+          <label class="all_btn">
+            <input
+              type="checkbox"
+              id="category"
+              name="category"
+              class="checkbox_input"
+            />
+            <span class="checkbox_parts">全部表示</span></label
+          >
+
+        <button type="button" class="btn">検索開始</button>
+                <h1>検索結果の表示</h1>
+
         </div>
       </form>
     </div>
 
+
+
     　　<!-- 絞り込み対象一覧 start -->
     <div class="item_container list">
       <div class="item" data-category='["fullHD"]' data-size="13inch">
-        <p class="item_name">13インチ フルHD液晶 ノートPC</p>
-        <img src="" alt="対象製品画像" />
+        <p class="item_name">airamp　齊藤　和生</p>
+        
       </div>
       <div class="item" data-category='["fullHD"]' data-size="15inch">
-        <p class="item_name">15インチ フルHD液晶 ノートPC</p>
-        <img src="" alt="対象製品画像" />
+        <p class="item_name">airdoor　鬼頭　史到</p>
+        
       </div>
       <div class="item" data-category='["4K"]' data-size="15inch">
-        <p class="item_name">15インチ 4K液晶 ノートPC</p>
-        <img src="" alt="対象製品画像" />
+        <p class="item_name">alloeh　副島 侑汰朗</p>
+        
       </div>
-      <div class="item" data-category='["4K", "orgEL"]' data-size="15inch">
-        <p class="item_name">15インチ 4K有機EL液晶 ノートPC</p>
-        <img src="" alt="対象製品画像" />
-      </div>
-      <div class="item" data-category='["4K"]' data-size="17inch">
-        <p class="item_name">17インチ 4K液晶 ノートPC</p>
-        <img src="" alt="対象製品画像" />
-      </div>
-      <div class="item" data-category='["4K", "orgEL"]' data-size="17inch">
-        <p class="item_name">17インチ 4K有機EL液晶 ノートPC</p>
-        <img src="" alt="対象製品画像" />
-      </div>
+      
     </div>
     <!-- 絞り込み対象一覧 end -->
 
