@@ -1,6 +1,6 @@
 const SHEET_ID = "15BcUVRYA9tN-vqOeSb654OZQM6Epq_clys1i84bfvWI";
 const SHEET_TITLE = "GSDB";
-const SHEET_RANGE = "A6:G15";
+const SHEET_RANGE = "A6:G60";
 
 const FULL_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_TITLE}!${SHEET_RANGE}?key=AIzaSyDt-Npa-gC9_au9DCMAUeGMpKAvtySvYPY`;
 
@@ -8,6 +8,7 @@ fetch(FULL_URL)
   .then((res) => res.json())
   .then((data) => {
     console.log(data);
+
     let player_Name_title = document.getElementById("player_Name_title");
     let player_Shoe_title = document.getElementById("player_Shoe_title");
     let player_Name = document.getElementById("player_Name");
@@ -15,14 +16,11 @@ fetch(FULL_URL)
     let Grid2 = document.getElementById("Grid2");
 
     let length = data.values.length - 1;
-
-    // const [playerName1, playerName2, playerName3, playerName4] = data.values
-    //   .slice(1, 5)
-    //   .map((row) => row[4]);
+    console.log(length);
 
     // 1つ目の企業のデータを取得
-    const firstRow = data.values[1];
-    const playerName1 = firstRow[4];
+    const firstRow = data.values[3];
+    const playerName1 = firstRow[6];
 
     // 2番目の企業のデータを取得
     const secondRow = data.values[2];
@@ -43,15 +41,18 @@ fetch(FULL_URL)
     player_Name.innerHTML = playerName3;
     player_Shoe.innerHTML = playerName4;
 
-    for (let i = 0; i < length; i++) {
-      let NewBox = document.createElement("div");
-      NewBox.id = "box" + i;
-      NewBox.className = "Some_Style";
-      Grid2.append(NewBox);
-      NewBox.innerHTML = data.values[i].c[1].v;
-    }
-  });
+    // const maleEntrepreneurs = data.values.filter(
+    //   (row) => row[4].toLowerCase() === "男"
+    // );
 
-//   .catch((error) => {
-//     console.error("Fetch error:", error);
-//   });
+    // let Grid2 = document.getElementById("Grid2");
+    // Grid2.innerHTML = "";
+
+    // for (let i = 0; i < maleEntrepreneurs.length; i++) {
+    //   let NewBox = document.createElement("div");
+    //   NewBox.id = "box" + i;
+    //   NewBox.className = "Some_Style";
+    //   Grid2.append(NewBox);
+    //   NewBox.innerHTML = maleEntrepreneurs[i][5]; // 起業家の名前はスプレッドシートの6列目
+    // }
+  });
