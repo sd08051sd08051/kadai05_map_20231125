@@ -9,50 +9,72 @@ fetch(FULL_URL)
   .then((data) => {
     console.log(data);
 
-    let player_Name_title = document.getElementById("player_Name_title");
-    let player_Shoe_title = document.getElementById("player_Shoe_title");
-    let player_Name = document.getElementById("player_Name");
-    let player_Shoe = document.getElementById("player_Shoe");
-    let Grid2 = document.getElementById("Grid2");
-
     let length = data.values.length - 1;
     console.log(length);
 
-    // 1つ目の企業のデータを取得
-    const firstRow = data.values[3];
-    const playerName1 = firstRow[6];
+    // Filter rows where gender is '女'
 
-    // 2番目の企業のデータを取得
-    const secondRow = data.values[2];
-    const playerName2 = secondRow[4];
+    const femaleEntrepreneurs = data.values.filter((row) => row[4] === "男");
 
-    // 3番目の企業のデータを取得
-    const thirdRow = data.values[3];
-    const playerName3 = thirdRow[4];
+    let Grid3 = document.getElementById("Grid2");
+    Grid2.innerHTML = "";
 
-    // 4番目の企業のデータを取得
-    const fourthRow = data.values[4];
-    const playerName4 = fourthRow[4];
+    for (let i = 0; i < femaleEntrepreneurs.length; i++) {
+      let NewBox = document.createElement("div");
+      NewBox.id = "box" + i;
+      NewBox.className = "Some_Style";
+      Grid2.append(NewBox);
+      NewBox.innerHTML = `
+    <strong>企業名:</strong> ${femaleEntrepreneurs[i][0]}<br>
+    <strong>起業家:</strong> ${femaleEntrepreneurs[i][1]}<br>
+    <strong>ジャンル:</strong> ${femaleEntrepreneurs[i][2]}<br>
+    <strong>起業時の年代:</strong> ${femaleEntrepreneurs[i][3]}<br>
+    <strong>性別:</strong> ${femaleEntrepreneurs[i][4]}<br>
+    <strong>URL:</strong> <a href="${femaleEntrepreneurs[i][5]}" target="_blank">${femaleEntrepreneurs[i][5]}</a><br>
+    <strong>本社:</strong> ${femaleEntrepreneurs[i][6]}<br>
+  `;
+    }
 
-    // 必要に応じて他のデータも取得
+    const genderRadioButtons = document.querySelectorAll(
+      'input[name="gender"]'
+    );
+    genderRadioButtons.forEach((radioButton) => {
+      radioButton.addEventListener("change", () => {
+        const selectedGender = radioButton.value;
+        const selectedGenderElement = document.getElementById("selectedGender");
+        selectedGenderElement.textContent = `選択された性別: ${selectedGender}`;
 
-    player_Name_title.innerHTML = playerName1;
-    player_Shoe_title.innerHTML = playerName2;
-    player_Name.innerHTML = playerName3;
-    player_Shoe.innerHTML = playerName4;
+        // Filter rows based on selected gender
+        const filteredEntrepreneurs = data.values.filter(
+          (row) => row[4] === selectedGender
+        );
 
-    // const maleEntrepreneurs = data.values.filter(
-    //   (row) => row[4].toLowerCase() === "男"
-    // );
+        // Display filtered entrepreneurs
+        displayEntrepreneurs(filteredEntrepreneurs);
+      });
+    });
 
-    // let Grid2 = document.getElementById("Grid2");
-    // Grid2.innerHTML = "";
+    // Function to display entrepreneurs
+    function displayEntrepreneurs(entrepreneurs) {
+      let Grid3 = document.getElementById("Grid3");
+      Grid3.innerHTML = "";
 
-    // for (let i = 0; i < maleEntrepreneurs.length; i++) {
-    //   let NewBox = document.createElement("div");
-    //   NewBox.id = "box" + i;
-    //   NewBox.className = "Some_Style";
-    //   Grid2.append(NewBox);
-    //   NewBox.innerHTML = maleEntrepreneurs[i][5]; // 起業家の名前はスプレッドシートの6列目
-    // }
+      for (let i = 0; i < entrepreneurs.length; i++) {
+        let NewBox = document.createElement("div");
+        NewBox.id = "box" + i;
+        NewBox.className = "Some_Style";
+        Grid3.append(NewBox);
+        NewBox.innerHTML = `
+      <strong>企業名:</strong> ${entrepreneurs[i][0]}<br>
+      <strong>起業家:</strong> ${entrepreneurs[i][1]}<br>
+      <strong>ジャンル:</strong> ${entrepreneurs[i][2]}<br>
+      <strong>起業時の年代:</strong> ${entrepreneurs[i][3]}<br>
+      <strong>性別:</strong> ${entrepreneurs[i][4]}<br>
+      <strong>URL:</strong> <a href="${entrepreneurs[i][5]}" target="_blank">${entrepreneurs[i][5]}</a><br>
+      <strong>本社:</strong> ${entrepreneurs[i][6]}<br>
+    `;
+      }
+    }
+
+    // ...
   });
