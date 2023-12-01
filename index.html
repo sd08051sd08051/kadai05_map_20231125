@@ -14,41 +14,19 @@
       <form id="selectForm">
         <div class="search_ui category_search_box">
           <label class="checkbox_margin">
-            <input
-              type="radio"
-              name="category"
-              value="fullHD"
-              class="radio_input"
-            />
+            <input type="radio" name="age" value="age" class="radio_input" />
             <span class="radio_parts padding_adjust1">20代で起業</span></label
           >
           <label class="checkbox_margin">
-            <input
-              type="radio"
-              name="category"
-              value="4K"
-              class="radio_input"
-            />
+            <input type="radio" name="age" value="age" class="radio_input" />
             <span class="radio_parts padding_adjust1">30代で起業</span></label
           >
           <label class="checkbox_margin">
-            <input
-              type="radio"
-              name="category"
-              value="orgEL"
-              class="radio_input"
-            />
+            <input type="radio" name="age" value="age" class="radio_input" />
             <span class="radio_parts padding_adjust1">40代で起業</span></label
           >
           <label class="checkbox_margin">
-            <input
-              type="radio"
-              name="category"
-              value=""
-              checked="checked"
-              class="radio_input"
-              id="allItem"
-            />
+            <input type="radio" name="age" value="age" class="radio_input" />
             <span class="radio_parts padding_adjust1"
               >50代以上で起業</span
             ></label
@@ -56,27 +34,27 @@
         </div>
 
         <div class="sex_search_box">
-      <label for="male" class="checkbox_margin">
-        <input
-          type="radio"
-          name="gender"
-          value="male"
-          class="radio_input"
-          id="male"
-        />
-        <span class="radio_parts padding_adjust1">男性</span>
-      </label>
-      <label for="female" class="checkbox_margin">
-        <input
-          type="radio"
-          name="gender"
-          value="female"
-          class="radio_input"
-          id="female"
-        />
-        <span class="radio_parts padding_adjust1">女性</span>
-      </label>
-    </div>
+          <label for="male" class="checkbox_margin">
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              class="radio_input"
+              id="male"
+            />
+            <span class="radio_parts padding_adjust1">男性</span>
+          </label>
+          <label for="female" class="checkbox_margin">
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              class="radio_input"
+              id="female"
+            />
+            <span class="radio_parts padding_adjust1">女性</span>
+          </label>
+        </div>
 
         <div class="search_ui size_search_box pc">
           <span id="sizeBox">
@@ -133,9 +111,8 @@
               class="checkbox_input size_sort"
             />
             <span class="checkbox_parts">人材</span></label
-          >
-
-                <input
+          ><label>
+            <input
               type="checkbox"
               name="category"
               value="category"
@@ -154,13 +131,12 @@
             <span class="checkbox_parts">全部表示</span></label
           >
 
-        <button type="button" class="btn">検索開始</button>
-                <h1>検索結果の表示</h1>
-   <div id="selectedGender"></div>
+          <button type="button" class="btn">検索開始</button>
+          <h1>検索結果の表示</h1>
+          <div id="selectedGender"></div>
         </div>
       </form>
     </div>
-
 
     <div id="Grid" class="Grid">
       <div id="player_Name_title"></div>
@@ -172,13 +148,14 @@
       <div id="player_Shoe"></div>
     </div>
 
-     <div id="Grid3" class="Grid3">
+    <div id="Grid3" class="Grid3">
       <div id="player_Name"></div>
       <div id="player_Shoe"></div>
     </div>
 
     <script>
-      // https://docs.google.com/spreadsheets/d/15BcUVRYA9tN-vqOeSb654OZQM6Epq_clys1i84bfvWI/edit#gid=0
+      const url =
+        "https://www.googleapis.com/books/v1/volumes?q=" + $("#key").val();
     </script>
 
     <script src="main.js"></script>
