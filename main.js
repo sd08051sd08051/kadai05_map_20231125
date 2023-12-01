@@ -35,3 +35,32 @@ fetch(FULL_URL)
   `;
     }
   });
+
+$("#send").on("click", function () {
+  const url =
+    "https://www.googleapis.com/books/v1/volumes?q=" + $("#key").val();
+
+  $.ajax({
+    url: url,
+    dataType: "json",
+  }).done(function (data1) {
+    // 書籍、出版社、サムネ、リンク
+
+    console.log(data1);
+    const len = data1.items.length;
+    let html1;
+    for (let i = 0; i < len; i++) {
+      html1 += `
+          <tr>
+            <td>${data1.items[i].volumeInfo.title}</td>
+            <td><img src="${data1.items[i].volumeInfo.imageLinks.thumbnail}"</td>
+            <td>${data1.items[i].volumeInfo.description}</td>
+            
+          </tr>
+       `;
+    }
+    $("#list").empty(html1);
+
+    $("#list").append(html1);
+  });
+});

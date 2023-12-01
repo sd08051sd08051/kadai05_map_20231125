@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -153,9 +153,24 @@
       <div id="player_Shoe"></div>
     </div>
 
+    <h1>関連書籍検索</h1>
+    <div id="book">
+      <input type="text" id="key" />
+      <button id="send">関連検索</button>
+    </div>
+    <div>
+      <table id="list">
+        <tr>
+          <td style="width: 100px">タイトル</td>
+          <td style="width: 50px">画像</td>
+          <td style="width: 400px">詳細</td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-      const url =
-        "https://www.googleapis.com/books/v1/volumes?q=" + $("#key").val();
+      // ボタンがクリックされたら
     </script>
 
     <script src="main.js"></script>

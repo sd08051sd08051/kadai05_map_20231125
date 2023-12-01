@@ -2,6 +2,8 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   width: 300px;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 
 /* ラジオボタンの装飾 */
@@ -100,8 +102,17 @@ h2 {
   text-align: center;
 }
 
+.book {
+  margin: 200 auto;
+}
+
 .search_area div {
   margin-bottom: 10px;
+}
+
+.Some_Style {
+  border-bottom: 1px solid #0050c1;
+  border-left: 1px solid #0050c1;
 }
 
 .item_container {
@@ -137,4 +148,9 @@ h2 {
 
 .Grid2 {
   text-align: center;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
